@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7414BAA728850839001CE252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BAA628850839001CE252 /* AppDelegate.swift */; };
+		7414BAAB28850839001CE252 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BAAA28850839001CE252 /* GameViewController.swift */; };
+		7414BAAE28850839001CE252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7414BAAC28850839001CE252 /* Main.storyboard */; };
+		7414BAB02885083A001CE252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7414BAAF2885083A001CE252 /* Assets.xcassets */; };
+		7414BAB32885083A001CE252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7414BAB12885083A001CE252 /* LaunchScreen.storyboard */; };
+		7414BABD2885083A001CE252 /* MyJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BABC2885083A001CE252 /* MyJumpTests.swift */; };
+		7414BAC72885083A001CE252 /* MyJumpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BAC62885083A001CE252 /* MyJumpUITests.swift */; };
+		7414BAC92885083A001CE252 /* MyJumpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BAC82885083A001CE252 /* MyJumpUITestsLaunchTests.swift */; };
+		7414BAD728850853001CE252 /* ScoreInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7414BAD528850853001CE252 /* ScoreInfo.xcdatamodeld */; };
+		7414BB2028850EFF001CE252 /* BottleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BB1F28850EFF001CE252 /* BottleNode.swift */; };
+		7414BB2228851138001CE252 /* NextDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BB2128851138001CE252 /* NextDirection.swift */; };
+		7414BB2428852140001CE252 /* ScoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BB2328852140001CE252 /* ScoreHelper.swift */; };
+		7414BB2A28853D1E001CE252 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414BB2928853D1E001CE252 /* ScoreTableViewCell.swift */; };
+		7414BB2C28855BF6001CE252 /* presssound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7414BB2B28855BF6001CE252 /* presssound.mp3 */; };
+		7414BB2E28855C12001CE252 /* failsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7414BB2D28855C12001CE252 /* failsound.mp3 */; };
+		7414BB3028855C33001CE252 /* fallsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7414BB2F28855C33001CE252 /* fallsound.mp3 */; };
+		7414BB3228856269001CE252 /* 日本群星-ハイグレしんちゃん.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7414BB3128856269001CE252 /* 日本群星-ハイグレしんちゃん.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7414BAB92885083A001CE252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7414BA9B28850839001CE252 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7414BAA228850839001CE252;
+			remoteInfo = MyJump;
+		};
+		7414BAC32885083A001CE252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7414BA9B28850839001CE252 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7414BAA228850839001CE252;
+			remoteInfo = MyJump;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7414BAA328850839001CE252 /* MyJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7414BAA628850839001CE252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7414BAAA28850839001CE252 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7414BAAD28850839001CE252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7414BAAF2885083A001CE252 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7414BAB22885083A001CE252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7414BAB82885083A001CE252 /* MyJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7414BABC2885083A001CE252 /* MyJumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJumpTests.swift; sourceTree = "<group>"; };
+		7414BAC22885083A001CE252 /* MyJumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyJumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7414BAC62885083A001CE252 /* MyJumpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJumpUITests.swift; sourceTree = "<group>"; };
+		7414BAC82885083A001CE252 /* MyJumpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJumpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7414BAD628850853001CE252 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7414BB1F28850EFF001CE252 /* BottleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleNode.swift; sourceTree = "<group>"; };
+		7414BB2128851138001CE252 /* NextDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDirection.swift; sourceTree = "<group>"; };
+		7414BB2328852140001CE252 /* ScoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHelper.swift; sourceTree = "<group>"; };
+		7414BB2928853D1E001CE252 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		7414BB2B28855BF6001CE252 /* presssound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = presssound.mp3; sourceTree = "<group>"; };
+		7414BB2D28855C12001CE252 /* failsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failsound.mp3; sourceTree = "<group>"; };
+		7414BB2F28855C33001CE252 /* fallsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fallsound.mp3; sourceTree = "<group>"; };
+		7414BB3128856269001CE252 /* 日本群星-ハイグレしんちゃん.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "日本群星-ハイグレしんちゃん.mp3"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7414BAA028850839001CE252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BAB52885083A001CE252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BABF2885083A001CE252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7414BA9A28850839001CE252 = {
+			isa = PBXGroup;
+			children = (
+				7414BAA528850839001CE252 /* MyJump */,
+				7414BABB2885083A001CE252 /* MyJumpTests */,
+				7414BAC52885083A001CE252 /* MyJumpUITests */,
+				7414BAA428850839001CE252 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7414BAA428850839001CE252 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7414BAA328850839001CE252 /* MyJump.app */,
+				7414BAB82885083A001CE252 /* MyJumpTests.xctest */,
+				7414BAC22885083A001CE252 /* MyJumpUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7414BAA528850839001CE252 /* MyJump */ = {
+			isa = PBXGroup;
+			children = (
+				7414BAA628850839001CE252 /* AppDelegate.swift */,
+				7414BB1F28850EFF001CE252 /* BottleNode.swift */,
+				7414BB2128851138001CE252 /* NextDirection.swift */,
+				7414BB2928853D1E001CE252 /* ScoreTableViewCell.swift */,
+				7414BB2328852140001CE252 /* ScoreHelper.swift */,
+				7414BAAA28850839001CE252 /* GameViewController.swift */,
+				7414BB2B28855BF6001CE252 /* presssound.mp3 */,
+				7414BB3128856269001CE252 /* 日本群星-ハイグレしんちゃん.mp3 */,
+				7414BB2F28855C33001CE252 /* fallsound.mp3 */,
+				7414BB2D28855C12001CE252 /* failsound.mp3 */,
+				7414BAD528850853001CE252 /* ScoreInfo.xcdatamodeld */,
+				7414BAAC28850839001CE252 /* Main.storyboard */,
+				7414BAAF2885083A001CE252 /* Assets.xcassets */,
+				7414BAB12885083A001CE252 /* LaunchScreen.storyboard */,
+			);
+			path = MyJump;
+			sourceTree = "<group>";
+		};
+		7414BABB2885083A001CE252 /* MyJumpTests */ = {
+			isa = PBXGroup;
+			children = (
+				7414BABC2885083A001CE252 /* MyJumpTests.swift */,
+			);
+			path = MyJumpTests;
+			sourceTree = "<group>";
+		};
+		7414BAC52885083A001CE252 /* MyJumpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7414BAC62885083A001CE252 /* MyJumpUITests.swift */,
+				7414BAC82885083A001CE252 /* MyJumpUITestsLaunchTests.swift */,
+			);
+			path = MyJumpUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7414BAA228850839001CE252 /* MyJump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7414BACC2885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJump" */;
+			buildPhases = (
+				7414BA9F28850839001CE252 /* Sources */,
+				7414BAA028850839001CE252 /* Frameworks */,
+				7414BAA128850839001CE252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyJump;
+			productName = MyJump;
+			productReference = 7414BAA328850839001CE252 /* MyJump.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7414BAB72885083A001CE252 /* MyJumpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7414BACF2885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJumpTests" */;
+			buildPhases = (
+				7414BAB42885083A001CE252 /* Sources */,
+				7414BAB52885083A001CE252 /* Frameworks */,
+				7414BAB62885083A001CE252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7414BABA2885083A001CE252 /* PBXTargetDependency */,
+			);
+			name = MyJumpTests;
+			productName = MyJumpTests;
+			productReference = 7414BAB82885083A001CE252 /* MyJumpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7414BAC12885083A001CE252 /* MyJumpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7414BAD22885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJumpUITests" */;
+			buildPhases = (
+				7414BABE2885083A001CE252 /* Sources */,
+				7414BABF2885083A001CE252 /* Frameworks */,
+				7414BAC02885083A001CE252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7414BAC42885083A001CE252 /* PBXTargetDependency */,
+			);
+			name = MyJumpUITests;
+			productName = MyJumpUITests;
+			productReference = 7414BAC22885083A001CE252 /* MyJumpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7414BA9B28850839001CE252 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					7414BAA228850839001CE252 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					7414BAB72885083A001CE252 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 7414BAA228850839001CE252;
+					};
+					7414BAC12885083A001CE252 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 7414BAA228850839001CE252;
+					};
+				};
+			};
+			buildConfigurationList = 7414BA9E28850839001CE252 /* Build configuration list for PBXProject "MyJump" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7414BA9A28850839001CE252;
+			productRefGroup = 7414BAA428850839001CE252 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7414BAA228850839001CE252 /* MyJump */,
+				7414BAB72885083A001CE252 /* MyJumpTests */,
+				7414BAC12885083A001CE252 /* MyJumpUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7414BAA128850839001CE252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7414BB2E28855C12001CE252 /* failsound.mp3 in Resources */,
+				7414BB3028855C33001CE252 /* fallsound.mp3 in Resources */,
+				7414BB3228856269001CE252 /* 日本群星-ハイグレしんちゃん.mp3 in Resources */,
+				7414BAB32885083A001CE252 /* LaunchScreen.storyboard in Resources */,
+				7414BAB02885083A001CE252 /* Assets.xcassets in Resources */,
+				7414BB2C28855BF6001CE252 /* presssound.mp3 in Resources */,
+				7414BAAE28850839001CE252 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BAB62885083A001CE252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BAC02885083A001CE252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7414BA9F28850839001CE252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7414BB2228851138001CE252 /* NextDirection.swift in Sources */,
+				7414BAAB28850839001CE252 /* GameViewController.swift in Sources */,
+				7414BB2A28853D1E001CE252 /* ScoreTableViewCell.swift in Sources */,
+				7414BB2428852140001CE252 /* ScoreHelper.swift in Sources */,
+				7414BAA728850839001CE252 /* AppDelegate.swift in Sources */,
+				7414BAD728850853001CE252 /* ScoreInfo.xcdatamodeld in Sources */,
+				7414BB2028850EFF001CE252 /* BottleNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BAB42885083A001CE252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7414BABD2885083A001CE252 /* MyJumpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7414BABE2885083A001CE252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7414BAC92885083A001CE252 /* MyJumpUITestsLaunchTests.swift in Sources */,
+				7414BAC72885083A001CE252 /* MyJumpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7414BABA2885083A001CE252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7414BAA228850839001CE252 /* MyJump */;
+			targetProxy = 7414BAB92885083A001CE252 /* PBXContainerItemProxy */;
+		};
+		7414BAC42885083A001CE252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7414BAA228850839001CE252 /* MyJump */;
+			targetProxy = 7414BAC32885083A001CE252 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7414BAAC28850839001CE252 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7414BAAD28850839001CE252 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7414BAB12885083A001CE252 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7414BAB22885083A001CE252 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7414BACA2885083A001CE252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7414BACB2885083A001CE252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7414BACD2885083A001CE252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJump;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7414BACE2885083A001CE252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJump;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7414BAD02885083A001CE252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyJump.app/MyJump";
+			};
+			name = Debug;
+		};
+		7414BAD12885083A001CE252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyJump.app/MyJump";
+			};
+			name = Release;
+		};
+		7414BAD32885083A001CE252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJumpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyJump;
+			};
+			name = Debug;
+		};
+		7414BAD42885083A001CE252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zjt.MyJumpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyJump;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7414BA9E28850839001CE252 /* Build configuration list for PBXProject "MyJump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7414BACA2885083A001CE252 /* Debug */,
+				7414BACB2885083A001CE252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7414BACC2885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7414BACD2885083A001CE252 /* Debug */,
+				7414BACE2885083A001CE252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7414BACF2885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJumpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7414BAD02885083A001CE252 /* Debug */,
+				7414BAD12885083A001CE252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7414BAD22885083A001CE252 /* Build configuration list for PBXNativeTarget "MyJumpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7414BAD32885083A001CE252 /* Debug */,
+				7414BAD42885083A001CE252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7414BAD528850853001CE252 /* ScoreInfo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7414BAD628850853001CE252 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7414BAD628850853001CE252 /* Model.xcdatamodel */;
+			path = ScoreInfo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7414BA9B28850839001CE252 /* Project object */;
+}
