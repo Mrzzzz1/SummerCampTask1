@@ -66,10 +66,8 @@ class BottleNode: SCNNode {
     }
 
     func updateStrengthStatus() {
-        print("ac")
         let action = SCNAction.customAction(duration: TimeInterval(MaxPressDuration), action: { [self] node, elapsedTime in
             let percentage = elapsedTime / CGFloat(MaxPressDuration)
-            print(percentage)
             node.geometry!.firstMaterial?.diffuse.contents = UIColor(red: 1, green: 1 - percentage, blue: 1 - percentage, alpha: 1)
         })
         coneNode.runAction(action)
@@ -77,7 +75,6 @@ class BottleNode: SCNNode {
     }
     
     func recover() {
-        print("re")
         sphereNode.position = SCNVector3(0, coneNodeHeight/2, 0)
         (coneNode.geometry as! SCNCone).height = coneNodeHeight
         coneNode.geometry!.firstMaterial!.diffuse.contents = UIColor.white
@@ -100,10 +97,21 @@ extension SCNNode {
     func isNotContainedXZ(in boxNode: SCNNode) -> Bool {
         let box = boxNode.geometry as! SCNBox
         let width = Float(box.width)
-        if fabs(position.x - boxNode.position.x) > width / 2.0 {
+        if abs(position.x - boxNode.position.x) > width / 2.0 {
             return true
         }
-        if fabs(position.z - boxNode.position.z) > width / 2.0 {
+        if abs(position.z - boxNode.position.z) > width / 2.0 {
+            return true
+        }
+        return false
+    }
+    func isNotContainedR(in CylinderNode: SCNNode) -> Bool {
+        let cylinder = CylinderNode.geometry as! SCNCylinder
+        let r = cylinder.radius
+        let x = abs(position.x - CylinderNode.position.x)
+        let z = abs(position.z - CylinderNode.position.z)
+        if z*z+x*x > Float(r*r) {
+
             return true
         }
         return false

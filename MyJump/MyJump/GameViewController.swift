@@ -11,11 +11,8 @@ import SceneKit
 import UIKit
 
 class GameViewController: UIViewController, SCNSceneRendererDelegate {
-    
-    
-    
-    private lazy var rankView:UITableView={
-        let rankView=UITableView(frame: view.frame)
+    private lazy var rankView: UITableView = {
+        let rankView = UITableView(frame: view.frame)
         rankView.register(ScoreTableViewCell.self, forCellReuseIdentifier: Id)
         rankView.delegate = self
         rankView.dataSource = self
@@ -23,12 +20,22 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         returnButton.setTitleColor(.systemBlue, for: .normal)
         returnButton.setTitle("return", for: .normal)
         returnButton.addTarget(self, action: #selector(clickReturnButton), for: .touchUpInside)
-        returnButton.titleLabel?.font =  UIFont(name: "HelveticaNeue", size: 25.0)
+        returnButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25.0)
         rankView.addSubview(returnButton)
         return rankView
     }()
-    var scoreData: [ScoreInfo]=[]
-    let Id="ScoretableViewCell"
+
+    let returnButton: UIButton = {
+        let returnButton = UIButton(frame: CGRect(x: 310, y: 10, width: 100, height: 15))
+        returnButton.setTitleColor(.systemBlue, for: .normal)
+        returnButton.setTitle("return", for: .normal)
+        returnButton.addTarget(self, action: #selector(clickReturnButton), for: .touchUpInside)
+        returnButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25.0)
+        return returnButton
+    }()
+    
+    var scoreData: [ScoreInfo] = []
+    let Id = "ScoretableViewCell"
     
     var scnScene: SCNScene!
     var scnView: SCNView!
@@ -41,25 +48,26 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     private lazy var backgroundMusicPlayer: SCNAudioPlayer = {
         let music = SCNAudioSource(fileNamed: "日本群星-ハイグレしんちゃん.mp3")!
         // 3.设置音量,循环播放,流读取,空间化(是否随位置不同有3D效果)
-          //music.volume = 1;
-          music.loops = true
-          music.shouldStream = true
-        //music.isPositional = false
-          // 4.创建播放器
-          let musicPlayer = SCNAudioPlayer(source: music)
+        // music.volume = 1;
+        music.loops = true
+        music.shouldStream = true
+        // music.isPositional = false
+        // 4.创建播放器
+        let musicPlayer = SCNAudioPlayer(source: music)
         return musicPlayer
     }()
+
     let presssoundMusic = SCNAudioSource(fileNamed: "presssound.mp3")!
     
     let fallsoundMusic = SCNAudioSource(fileNamed: "fallsound.mp3")!
     
     let failsoundMusic = SCNAudioSource(fileNamed: "failsound.mp3")!
     
-    
     private var boxNodes: [SCNNode] = []
     private lazy var bottleNode: BottleNode = .init()
     
     private var maskTouch: Bool = false
+    private var canTouch: Bool = true
     private var nextDirection: NextDirection = .left
     // 蓄力时间
     private var touchTimePair: (begin: TimeInterval, end: TimeInterval) = (0, 0)
@@ -69,25 +77,27 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
 
     private let moveDuration: TimeInterval = 0.25
+    private var isBox: Int = 0
     private let boxWidth: CGFloat = 5
+    private let boxHeigh: CGFloat = 2
     private let jumpHeight: CGFloat = 3
     private let scoreLabel = UILabel(frame: CGRect(x: 20,
                                                    y: 50,
                                                    width: 200,
                                                    height: 30))
     private let rankButton: UIButton = {
-        let button = UIButton(frame: CGRect(x:  UIScreen.main.bounds.width - 150, y: 50, width: 150, height: 30))
+        let button = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 150, y: 50, width: 150, height: 30))
         button.setTitle("rank", for: .normal)
         button.addTarget(self, action: #selector(clickRankbutton), for: .touchUpInside)
-        button.setTitleColor( UIColor.systemBlue, for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
 
         return button
     }()
     
     @objc func clickRankbutton() {
-        print("clickButton")
         setUpRankView()
     }
+
     private var score: UInt = 0 {
         didSet {
             DispatchQueue.main.async { [unowned self] in
@@ -104,7 +114,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         // spawnShape()
         scoreLabel.font = UIFont(name: "HelveticaNeue", size: 30.0)
         scoreLabel.textColor = .black
-        rankButton.titleLabel?.font =  UIFont(name: "HelveticaNeue", size: 30.0)
+        rankButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 30.0)
         scnView.addSubview(scoreLabel)
         scnView.addSubview(rankButton)
         scnScene.rootNode.addAudioPlayer(backgroundMusicPlayer)
@@ -112,13 +122,12 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
 
     func setupView() {
-        scnView = view as! SCNView
+        scnView = (view as! SCNView)
         scnView.backgroundColor = .white
         scnView.showsStatistics = true
         // scnView.allowsCameraControl = true
         scnView.autoenablesDefaultLighting = true
         scnView.delegate = self
-        
     }
 
     func setupScene() {
@@ -138,16 +147,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         scnScene.rootNode.addChildNode(cameraNode)
     }
     
-    func setUpRankView(){
+    func setUpRankView() {
         scoreData = ScoreHelper.shared.queryScore()
         view.addSubview(rankView)
         rankView.reloadData()
-        
     }
     
     @objc func clickReturnButton() {
         rankView.removeFromSuperview()
-       // rankButton.isEnabled = true
+        // rankButton.isEnabled = true
     }
 
     // 重启游戏
@@ -159,6 +167,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
         bottleNode.removeFromParentNode()
         boxNodes.removeAll()
+        generateBox(at: SCNVector3(0, 0, 0))
+        addConeNode()
+        generateBox(at: boxNodes.last!.position)
+        cameraNode.position = SCNVector3(cameraX, cameraY, cameraZ)
     }
 
     // 初始化圆锥
@@ -175,20 +187,25 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             addConeNode()
             generateBox(at: boxNodes.last!.position)
         } else {
+            if !canTouch { return }
             if !maskTouch {
+                canTouch.toggle()
                 maskTouch.toggle()
+                touchTimePair.begin = (event?.timestamp)!
+                bottleNode.updateStrengthStatus()
+                scnScene.rootNode.runAction(SCNAction.playAudio(presssoundMusic, waitForCompletion: false))
             }
-            touchTimePair.begin = (event?.timestamp)!
-            bottleNode.updateStrengthStatus()
-            scnScene.rootNode.runAction(SCNAction.playAudio(presssoundMusic, waitForCompletion: false))
+//            print("toutchesBegan")
+//            touchTimePair.begin = (event?.timestamp)!
+//            bottleNode.updateStrengthStatus()
+//            scnScene.rootNode.runAction(SCNAction.playAudio(presssoundMusic, waitForCompletion: false))
         }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if maskTouch {
             maskTouch.toggle()
-            scnScene.rootNode.runAction(SCNAction.playAudio(fallsoundMusic, waitForCompletion: false))
-            
+            scnScene.rootNode.runAction(SCNAction.playAudio(fallsoundMusic, waitForCompletion: true))
             
             touchTimePair.end = (event?.timestamp)!
             
@@ -209,22 +226,27 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             bottleNode.coneNode.removeAllActions()
             bottleNode.recover()
             bottleNode.runAction(SCNAction.group(actions), completionHandler: { [weak self] in
+                self?.canTouch = true
                 let boxNode = (self?.boxNodes.last!)!
-                if (self?.bottleNode.isNotContainedXZ(in: boxNode))! {
-//                    self?.scnScene.rootNode.runAction(SCNAction.playAudio(self!.failsoundMusic, waitForCompletion: true))
+                var isNotContained = false
+                if self?.isBox == 1 {
+                    isNotContained = self?.bottleNode.isNotContainedXZ(in: boxNode) ?? true
+                } else {
+                    isNotContained = self?.bottleNode.isNotContainedR(in: boxNode) ?? true
+                }
+                if isNotContained {
                     ScoreHelper.shared.setHighestScore(Int((self?.score)!))
-                    let nowScore=self!.score
-                    let date=DateFormatter()
+                    let nowScore = self!.score
+                    let date = DateFormatter()
                     date.dateFormat = "yyyy-MM-dd HH:mm"
                     let timeNow = Date()
-                    let time=date.string(from: timeNow)
+                    let time = date.string(from: timeNow)
                     ScoreHelper.shared.saveScore(score: Int(nowScore), time: time)
-                    DispatchQueue.main.async() {
+                    DispatchQueue.main.async {
                         self?.scnScene.rootNode.runAction(SCNAction.playAudio(self!.failsoundMusic, waitForCompletion: true))
                         self?.alert(message: "Game Over!\n\nScore: \(nowScore)\n\nHighest: \(ScoreHelper.shared.getHighestScore())")
                     }
                     self?.restartGame()
-                    self?.cameraNode.position = SCNVector3(self!.cameraX, self!.cameraY, self!.cameraZ)
                 } else {
                     self?.score += 1
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -247,7 +269,19 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
 
     private func generateBox(at realPosition: SCNVector3) {
-        let box = SCNBox(width: boxWidth, height: boxWidth * 2 / 5, length: boxWidth, chamferRadius: 0.0)
+        isBox = Int.random(in: 0...1)
+        
+        let box: SCNGeometry = {
+            let boxWidth = self.boxWidth
+            switch isBox {
+            case 1:
+                let box = SCNBox(width: boxWidth, height: boxHeigh, length: boxWidth, chamferRadius: 0.0)
+                return box
+            default:
+                let box = SCNCylinder(radius: boxWidth / 2, height: boxHeigh)
+                return box
+            }
+        }()
         let node = SCNNode(geometry: box)
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.randomColor()
@@ -275,6 +309,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
+
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         if maskTouch {
             bottleNode.scaleHeight()
@@ -282,23 +317,21 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
 }
 
-extension GameViewController: UITableViewDelegate,UITableViewDataSource {
+extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if scoreData.count>100 {
+        if scoreData.count > 100 {
             return 100
         }
         return scoreData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = rankView.dequeueReusableCell(withIdentifier:Id , for: indexPath) as! ScoreTableViewCell
-        cell.fillView(rank: indexPath.item+1, score: Int(scoreData[indexPath.item].score), time: scoreData[indexPath.item].time!)
+        let cell = rankView.dequeueReusableCell(withIdentifier: Id, for: indexPath) as! ScoreTableViewCell
+        cell.fillView(rank: indexPath.item + 1, score: Int(scoreData[indexPath.item].score), time: scoreData[indexPath.item].time!)
         return cell
     }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return " rank           score          time"
+        return " rank           score            time"
     }
-    
-    
-    
 }
