@@ -16,17 +16,11 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rankView.register(ScoreTableViewCell.self, forCellReuseIdentifier: Id)
         rankView.delegate = self
         rankView.dataSource = self
-        let returnButton = UIButton(frame: CGRect(x: 300, y: 10, width: 100, height: 18))
-        returnButton.setTitleColor(.systemBlue, for: .normal)
-        returnButton.setTitle("return", for: .normal)
-        returnButton.addTarget(self, action: #selector(clickReturnButton), for: .touchUpInside)
-        returnButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25.0)
-        rankView.addSubview(returnButton)
         return rankView
     }()
 
     let returnButton: UIButton = {
-        let returnButton = UIButton(frame: CGRect(x: 310, y: 10, width: 100, height: 15))
+        let returnButton = UIButton(frame: CGRect(x: 310, y: 50, width: 100, height: 15))
         returnButton.setTitleColor(.systemBlue, for: .normal)
         returnButton.setTitle("return", for: .normal)
         returnButton.addTarget(self, action: #selector(clickReturnButton), for: .touchUpInside)
@@ -150,11 +144,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     func setUpRankView() {
         scoreData = ScoreHelper.shared.queryScore()
         view.addSubview(rankView)
+        view.addSubview(returnButton)
         rankView.reloadData()
     }
     
     @objc func clickReturnButton() {
         rankView.removeFromSuperview()
+        returnButton.removeFromSuperview()
         // rankButton.isEnabled = true
     }
 
