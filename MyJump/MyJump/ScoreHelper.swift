@@ -11,15 +11,15 @@ import UIKit
 
 class ScoreHelper: NSObject {
     private let kHeightScoreKey = "highest_score"
-    
+
     override private init() {}
 
     static let shared: ScoreHelper = .init()
-    
+
     func getHighestScore() -> Int {
         return UserDefaults.standard.integer(forKey: kHeightScoreKey)
     }
-    
+
     func setHighestScore(_ score: Int) {
         if score > getHighestScore() {
             UserDefaults.standard.set(score, forKey: kHeightScoreKey)
@@ -38,7 +38,7 @@ class ScoreHelper: NSObject {
         // 对象赋值
         scoreInfo.score = Int32(score)
         scoreInfo.time = time
-        
+
         // 保存
         do {
             try context.save()
@@ -47,7 +47,7 @@ class ScoreHelper: NSObject {
             fatalError("不能保存：\(error)")
         }
     }
-    
+
     func queryScore() -> [ScoreInfo] {
         // 获取管理的数据上下文 对象
         let app = UIApplication.shared.delegate as! AppDelegate

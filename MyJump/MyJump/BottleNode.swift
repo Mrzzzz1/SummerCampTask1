@@ -16,7 +16,7 @@ class BottleNode: SCNNode {
     var maskPosition: Bool = false
     var positionY: Float = 0.0
     let MaxPressDuration = 2
-    
+
     lazy var myMaterial: SCNMaterial = {
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.white
@@ -36,7 +36,7 @@ class BottleNode: SCNNode {
         cone.materials = [myMaterial]
         return SCNNode(geometry: cone)
     }()
-    
+
     override init() {
         super.init()
         coneNode.position = SCNVector3(0, -1, 0)
@@ -44,7 +44,7 @@ class BottleNode: SCNNode {
         coneNode.addChildNode(sphereNode)
         addChildNode(coneNode)
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -73,13 +73,12 @@ class BottleNode: SCNNode {
         coneNode.runAction(action)
         sphereNode.runAction(action)
     }
-    
+
     func recover() {
-        sphereNode.position = SCNVector3(0, coneNodeHeight/2, 0)
+        sphereNode.position = SCNVector3(0, coneNodeHeight / 2, 0)
         (coneNode.geometry as! SCNCone).height = coneNodeHeight
         coneNode.geometry!.firstMaterial!.diffuse.contents = UIColor.white
         sphereNode.geometry!.firstMaterial!.diffuse.contents = UIColor.white
-        
     }
 }
 
@@ -93,7 +92,6 @@ extension UIColor {
 }
 
 extension SCNNode {
-    
     func isNotContainedXZ(in boxNode: SCNNode) -> Bool {
         let box = boxNode.geometry as! SCNBox
         let width = Float(box.width)
@@ -105,16 +103,15 @@ extension SCNNode {
         }
         return false
     }
+
     func isNotContainedR(in CylinderNode: SCNNode) -> Bool {
         let cylinder = CylinderNode.geometry as! SCNCylinder
         let r = cylinder.radius
         let x = abs(position.x - CylinderNode.position.x)
         let z = abs(position.z - CylinderNode.position.z)
-        if z*z+x*x > Float(r*r) {
-
+        if z*z + x*x > Float(r*r) {
             return true
         }
         return false
     }
-    
 }

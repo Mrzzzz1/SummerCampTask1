@@ -5,14 +5,12 @@
 //  Created by Zjt on 2022/7/18.
 //
 
-import UIKit
 import CoreData
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,27 +33,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
+
     lazy var persistentContainer: NSPersistentContainer = {
         /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
+          The persistent container for the application. This implementation
+          creates and returns a container, having loaded the store for the
+          application to it. This property is optional since there are legitimate
+          error conditions that could cause the creation of the store to fail.
+         */
         let container = NSPersistentContainer(name: "ScoreInfo")
         let storeUrl = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("ScoreInfo.sqlite")
-        //print(storeUrl)
+        // print(storeUrl)
         let description = NSPersistentStoreDescription(url: storeUrl)
-        //print(description)
+        // print(description)
         description.shouldMigrateStoreAutomatically = true
         description.shouldInferMappingModelAutomatically = true
-        container.persistentStoreDescriptions =  [description]
-        
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.persistentStoreDescriptions = [description]
+
+        container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -85,7 +84,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
 //    }
-
-
 }
-
